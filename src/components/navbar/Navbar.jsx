@@ -20,7 +20,7 @@ const Navbar = () => {
              break;
         }
         case "euro":{
-            setCurrency({name:"euro",symbol:"€"});
+            setCurrency({name:"eur",symbol:"€"});
             break;
         }
         case "inr":{
