@@ -1,4 +1,4 @@
-# CryptoApp
+# CryptoPlace
 
 CryptoApp is a cryptocurrency marketplace application that allows users to explore and search for cryptocurrency data, including market rank, price, 24-hour price change, and market cap. The app fetches real-time data from the CoinGecko API and provides a user-friendly interface for crypto enthusiasts.
 
