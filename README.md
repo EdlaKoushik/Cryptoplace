@@ -24,9 +24,12 @@ CryptoApp is a cryptocurrency marketplace application that allows users to explo
    ```bash
    git clone https://github.com/your-username/CryptoApp.git
    cd CryptoApp
+   
 2.Install dependencies
   npm install
+  
 3.Start the development server
   npm run dev
+  
 4.Open the app in your browser
 http://localhost:5173
