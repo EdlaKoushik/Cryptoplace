@@ -66,7 +66,7 @@ const Home = () => {
             <p>Coins</p>
             <p>Price</p>
             <p style={{textAlign:"center"}}>24H Change</p>
-            <p style={{textAlign:"right"}}> Market Cap</p>
+            <p style={{textAlign:"right"}} className="market-cap"> Market Cap</p>
         </div>
         {
         displayCoin.slice(0,100).map((item,index)=>(
@@ -80,7 +80,7 @@ const Home = () => {
 
             <p>{currency.symbol}{item.current_price.toLocaleString()}</p>
             <p style={{textAlign:"center"}} className={item.price_change_percentage_24h>0 ? "green":"red" } >{Math.floor(item.price_change_percentage_24h*100)/100}</p>
-            <p style={{textAlign:"right"}} >{currency.symbol}{item.market_cap.toLocaleString()}</p>
+            <p style={{textAlign:"right"}} className="market-cap" >{currency.symbol}{item.market_cap.toLocaleString()}</p>
          </Link>
             ))
         }
