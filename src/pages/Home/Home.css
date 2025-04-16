@@ -94,7 +94,7 @@
     .crypto-layout{
         grid-template-columns: 0.5fr 3fr 1fr 1fr;
     }
-    .market_cap{
+    .market-cap{
         display:none;
     }
 }
