@@ -1,49 +1,59 @@
 import { createContext, useEffect, useState } from "react";
 
-export const CoinContext=createContext();
+const apiKey = import.meta.env.VITE_API_KEY;
+export const CoinContext = createContext();
 
-const CoinContextProvider=(props)=>{
-           
+const CoinContextProvider = (props) => {
+  const [allCoin, setAllCoin] = useState([]);
+  const [currency, setCurrency] = useState({
+    name: "usd",
+    symbol: "$",
+  });
 
-      const [allCoin,setAllCoin] =useState([]);
-      const [currency,setCurrency]=useState({
-        name:"usd",
-        symbol:"$"
-      })
- 
-      
-     const fetchAllCoin=async ()=>{
-        const options = {
-            method: 'GET',
-            headers: {accept: 'application/json', 'x-cg-demo-api-key': process.env.REACT_APP_API}
-          };
-          
-          fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`, options)  //when ever the currency gets updated we are changing the api request
-            .then(res => res.json())
-            .then(res => setAllCoin(res))
-            .catch(err => console.error(err));
-     }
+  const fetchAllCoin = async () => {
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        "x-cg-demo-api-key": apiKey, // Use the API key from the environment variable
+      },
+    };
 
-   useEffect(()=>{  //this use effect will call the function  once when it is loaded
+    try {
+      const response = await fetch(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`,
+        options
+      );
+
+      if (!response.ok) {
+        console.error(`API Error: ${response.status} ${response.statusText}`);
+        setAllCoin([]); // Set an empty array to avoid breaking the UI
+        return;
+      }
+
+      const data = await response.json();
+      setAllCoin(data);
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      setAllCoin([]); // Set an empty array to avoid breaking the UI
+    }
+  };
+
+  useEffect(() => {
     fetchAllCoin();
-   },[ currency])   //ny using this our component get executed once when it loaded
+  }, [currency]); // Fetch data whenever the currency changes
 
+  const contextValue = {
+    allCoin,
+    currency,
+    setCurrency,
+  };
 
-   const contextValue={
-    allCoin,currency,setCurrency
-   }
-
-       return (
-
-        <CoinContext.Provider value={contextValue}>
-              {props.children}
-        </CoinContext.Provider>
-       
-    
-    )
-
-}
-
-
+  return (
+    <CoinContext.Provider value={contextValue}>
+      {props.children}
+    </CoinContext.Provider>
+  );
+};
 
 export default CoinContextProvider;
