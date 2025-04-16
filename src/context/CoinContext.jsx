@@ -15,7 +15,7 @@ const CoinContextProvider=(props)=>{
      const fetchAllCoin=async ()=>{
         const options = {
             method: 'GET',
-            headers: {accept: 'application/json', 'x-cg-demo-api-key': process.env.REACT_APP_API_KEY}
+            headers: {accept: 'application/json', 'x-cg-demo-api-key': process.env.REACT_APP_API}
           };
           
           fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`, options)  //when ever the currency gets updated we are changing the api request
