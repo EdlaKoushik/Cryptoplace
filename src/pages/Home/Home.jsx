@@ -47,11 +47,11 @@ const Home = () => {
   return (
     <div className="home">
      <div className="hero">
-        <h1>Largest <br/> 
-        Crypto Marketplace</h1>
-        <p>Welcome to the  world's Largest cryptocurrency marketplace.
-            Sign up to explore more about cryptos.
-        </p>
+        <h1>Track Crypto <br/> 
+  in Real Time</h1>
+  <p>Monitor prices, market caps, and trends for 100+ cryptocurrencies. 
+     All in one place, completely free.
+  </p>
         <form onSubmit={searchHandler}>
             <input onChange={inputHandler}  list ="coinlist" value={input}  type="text" placeholder="Search crypto.." required />
             <datalist id="coinlist">

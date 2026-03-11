@@ -1,0 +1,135 @@
+.pricing-page {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 70vh;
+}
+
+.pricing-page h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.pricing-subtitle {
+  color: #b0b0d0;
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.pricing-card {
+  background: #1a1b30;
+  border: 1px solid #3a3a55;
+  border-radius: 15px;
+  padding: 40px 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+}
+
+.pricing-card.recommended {
+  border: 2px solid #6b46c1;
+  transform: scale(1.05);
+}
+
+.pricing-card.recommended:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.recommended-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #6b46c1, #4f3b9c);
+  color: white;
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.pricing-card h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.price {
+  margin-bottom: 30px;
+}
+
+.amount {
+  font-size: 48px;
+  font-weight: bold;
+  color: #6b46c1;
+}
+
+.period {
+  color: #b0b0d0;
+  font-size: 16px;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.features-list li {
+  color: #b0b0d0;
+  padding: 10px 0;
+  border-bottom: 1px solid #3a3a55;
+}
+
+.features-list li:last-child {
+  border-bottom: none;
+}
+
+.pricing-btn {
+  padding: 12px 40px;
+  background: transparent;
+  border: 2px solid #6b46c1;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.pricing-btn:hover {
+  background: #6b46c1;
+}
+
+.recommended-btn {
+  background: #6b46c1;
+}
+
+.recommended-btn:hover {
+  background: #4f3b9c;
+  border-color: #4f3b9c;
+}
+
+.free-note {
+  margin-top: 50px;
+  color: #b0b0d0;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .pricing-card.recommended {
+    transform: scale(1);
+  }
+  
+  .pricing-card.recommended:hover {
+    transform: translateY(-5px);
+  }
+}
